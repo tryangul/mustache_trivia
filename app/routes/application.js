@@ -2,7 +2,7 @@ import Ember from 'ember';
 
   var ref = new Firebase("https://mustachetrivia.firebaseio.com/");
 
-  var signIn = function(provider, params) {
+  var signInPassword = function(params) {
     ref.authWithPassword({
       email    : params.email,
       password : params.password
@@ -12,8 +12,6 @@ import Ember from 'ember';
       } else {
         console.log("Authenticated successfully with payload:", authData);
         ref.child("users").child(authData.uid).update({
-          name: authData.displayName,
-          email: authData.email,
           profileImageURL: authData.password.profileImageURL,
           admin: false,
           provider: authData.provider
@@ -48,45 +46,45 @@ export default Ember.Route.extend({
             wrongAnswers: null
           });
         }
-        signIn('password', params);
+        signInPassword(params);
       });
     },
-
+//Sign in with Facebook
     signIn: function(provider) {
-      if (provider === "facebook") {
-        ref.onAuth(authDataCallback);
-        function authDataCallback(authData) {
-          if (authData) {
-            console.log("User " + authData.uid + " is logged in with " + authData.provider);
-            location.reload();
-          } else {
-            console.log("User is logged out");
-          }
+      ref.onAuth(authDataCallback);
+      function authDataCallback(authData) {
+        if (authData) {
+          console.log("User " + authData.uid + " is logged in with " + authData.provider);
+          location.reload();
+        } else {
+          console.log("User is logged out");
         }
-        ref.authWithOAuthPopup("facebook", function(error, authData) {
-            if (error) {
-              console.log("Login Failed!", error);
-              this.set(errors, error);
-            } else {
-              console.log("Authenticated successfully with payload:", authData);
-              var currentUser = authData.facebook;
-                ref.child("users").child(authData.uid).update({
-                  name: currentUser.displayName,
-                  email: currentUser.email,
-                  profileImageURL: currentUser.profileImageURL,
-                  admin: false,
-                  provider: authData.provider
-                });
-              }
-          },
-          {
-            scope: "email, user_friends"
-          });
-          this.transitionTo('index');
-      } else {
-         signIn('password', params);
-         this.transitionTo('index');
       }
+      ref.authWithOAuthPopup("facebook", function(error, authData) {
+          if (error) {
+            console.log("Login Failed!", error);
+            this.set(errors, error);
+          } else {
+            console.log("Authenticated successfully with payload:", authData);
+            var currentUser = authData.facebook;
+              ref.child("users").child(authData.uid).update({
+                name: currentUser.displayName,
+                email: currentUser.email,
+                profileImageURL: currentUser.profileImageURL,
+                admin: false,
+                provider: authData.provider
+              });
+            }
+        },
+        {
+          scope: "email, user_friends"
+        });
+        this.transitionTo('index');
+    },
+//Sign in with Email and Password
+    signInPassword: function(params) {
+      signInPassword(params);
+      this.transitionTo('index');
     },
 
     signOut: function() {
