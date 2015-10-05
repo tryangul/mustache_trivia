@@ -18,6 +18,16 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+    },
+
+    googleFonts: [
+      'Roboto:100,200,300,400,500,600,700,800',
+      'Playball: 400'
+    ],
+
+    contentSecurityPolicy: {
+      'font-src': "'self' fonts.gstatic.com",
+      'style-src': "'self' fonts.googleapis.com"
     }
   };
 
