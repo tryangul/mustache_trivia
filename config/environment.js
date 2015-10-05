@@ -28,6 +28,10 @@ module.exports = function(environment) {
     contentSecurityPolicy: {
       'font-src': "'self' fonts.gstatic.com",
       'style-src': "'self' fonts.googleapis.com"
+    },
+
+    torii: {
+      sessionServiceName: 'session'
     }
   };
 
