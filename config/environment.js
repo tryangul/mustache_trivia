@@ -21,7 +21,7 @@ module.exports = function(environment) {
     },
 
     googleFonts: [
-      'Roboto:100,200,300,400,500,600,700,800',
+      'Raleway:100,200,300,400,500,600,700,800',
       'Playball: 400'
     ],
 
