@@ -12,23 +12,20 @@
   <label for="time">Select a Time Limit:</label>
     {{#x-select value=time id="game-time"}}
       <option disabled="disabled" selected="selected">Time Limit</option>
+      {{#x-option value=15}}:15{{/x-option}}
       {{#x-option value=30}}:30{{/x-option}}
+      {{#x-option value=45}}:45{{/x-option}}
       {{#x-option value=60}}1 Minute{{/x-option}}
-      {{#x-option value=90}}1:30{{/x-option}}
-      {{#x-option value=120}}2 Minutes{{/x-option}}
-      {{#x-option value=150}}2:30{{/x-option}}
-      {{#x-option value=180}}3 Minutes{{/x-option}}
-      {{#x-option value=300}}5 Minutes{{/x-option}}
     {{/x-select}}
 <br>
   <label for="challenge-user">Choose a User to challenge:</label>
     {{#x-select value=user id="select-user"}}
       <option disabled="disabled" selected="selected">Choose User</option>
-      {{#each user as |user|}}
+      {{#each model as |user|}}
       {{#x-option value=user}}
       {{user.name}}
       {{/x-option}}
       {{/each}}
     {{/x-select}}
-<button name="create-game-button" {{action 'createGame' model}}>Create Game</button>
+<button name="create-game-button" {{action 'createGame'}}>Create Game</button>
 </form>
