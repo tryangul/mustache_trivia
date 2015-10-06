@@ -1,1 +1,7 @@
-{{yield}}
+{{#link-to 'new-game'}}
+<button name="game">Play a Game!</button>
+{{/link-to}}
+
+{{#link-to 'user-profile'}} <!-- will need to pass in active user session id. -->
+<<button name="user-profile">View your Profile</button>
+{{/link-to}}
