@@ -5,8 +5,8 @@ export default Ember.Component.extend({
   actions: {
     createGame() {
       var params = {
-        creator: this.get('model'),
-        user: this.get('user'),
+        player1: this.get('model'),
+        player2: this.get('user'),
         difficulty: this.get('difficulty'),
         time: this.get('time')
       };
