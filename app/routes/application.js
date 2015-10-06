@@ -30,7 +30,7 @@ export default Ember.Route.extend({
     var currentUser = this.get("session.uid")
     return this.store.findRecord('user', currentUser)
   },
-  
+
   actions: {
     signUp: function(params) {
       ref.createUser({
@@ -95,6 +95,6 @@ export default Ember.Route.extend({
 
     signOut: function() {
       this.get("session").close();
-    }
+    },
   }
 });
