@@ -20,6 +20,10 @@ export default Ember.Component.extend({
       }
     },
 
+    signIn(provider) {
+      this.sendAction("signIn", provider);
+    },
+
     showSignup() {
       this.set("signupShowing", true);
     },
