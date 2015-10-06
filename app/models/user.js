@@ -9,5 +9,7 @@ export default DS.Model.extend({
   correctAnswers: DS.attr(),
   wrongAnswers: DS.attr(),
   gameScore: null,
+  wins: DS.attr(),
+  losses: DS.attr(),
   games: DS.hasMany('game', {aysnc: true})
 });
