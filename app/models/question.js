@@ -6,4 +6,5 @@ export default DS.Model.extend({
   answer: DS.attr(),
   air_date: DS.attr(),
   category: DS.attr(),
+  round: DS.belongsTo('round', {async: true})
 });
