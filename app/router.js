@@ -7,8 +7,7 @@ var Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('new-game', {});
-  this.route('landing-page', {});
-  this.route('user-profile', {});
+  this.route('profile', {path: '/users/:user_id'});
 });
 
 export default Router;
