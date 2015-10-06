@@ -2,8 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model() {
-    var currentUser = this.get("session.uid")
-    return this.store.findRecord('user', currentUser)
+    return this.store.findAll('user');
   },
 
   actions: {
@@ -15,4 +14,5 @@ export default Ember.Route.extend({
       params.player2.save();
     }
   }
+
 });
