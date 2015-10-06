@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-  var ref = new Firebase("https://mustachetrivia.firebaseio.com/");
+  var ref = new Firebase("https://mustachetriviaapp.firebaseio.com/");
 
   var signInPassword = function(params) {
     ref.authWithPassword({
@@ -22,13 +22,17 @@ import Ember from 'ember';
   };
 
 export default Ember.Route.extend({
+
   beforeModel: function() {
     return this.get("session").fetch().catch(function() {});
   },
 
+// this could be whats breaking
   model() {
     var currentUser = this.get("session.uid")
-    return this.store.findRecord('user', currentUser)
+    return this.store.findAll('user').then(function(users) {
+      return users.filterBy('user', currentUser)
+    })
   },
 
   actions: {
