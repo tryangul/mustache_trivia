@@ -4,6 +4,7 @@ import Ember from 'ember';
   var error_message = ""
 
   var signInPassword = function(params, route) {
+    var _this = this;
     ref.authWithPassword({
       email    : params.email,
       password : params.password
@@ -17,7 +18,9 @@ import Ember from 'ember';
           admin: false,
           provider: authData.provider
         });
-        window.location.reload();
+        _this.transitionTo('profile', authData.uid).then(function(){
+          window.location.reload();
+        });
       }
     });
   };
@@ -60,7 +63,11 @@ export default Ember.Route.extend({
       var _this = this;
       ref.onAuth(authDataCallback);
       function authDataCallback(authData) {
-        if (authData) location.reload();
+        if (authData) {
+          _this.transitionTo('profile', authData.uid).then(function(){
+            window.location.reload();
+          });
+        }
       }
       ref.authWithOAuthPopup("facebook", function(error, authData) {
         if (error) {
@@ -81,7 +88,6 @@ export default Ember.Route.extend({
     {
       scope: "email, user_friends"
     });
-    this.transitionTo('index');
   },
   //Sign in with Email and Password
     signInPassword: function(params) {
