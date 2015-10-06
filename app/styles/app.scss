@@ -11,6 +11,9 @@ a, a:focus, a:active {
 body {
   font-family: 'Raleway', sans-serif;
   font-weight: 100;
+  // color: rgba(234, 232, 204, 0.8);
+  color: #333;
+  background: url('/assets/images/fabric-of-squares.png');
   h1 {
     font-weight: 800;
   }
@@ -28,4 +31,20 @@ body {
 
 .main-container {
   margin-top: 6%;
+}
+
+// Navbar
+.navbar-default {
+  background: transparent;
+  color: inherit;
+}
+
+//Index
+.header-logo {
+  img {
+    width: 35rem;
+    margin-left:35%;
+    margin-top: 8%;;
+    opacity: 0.75;
+  }
 }
