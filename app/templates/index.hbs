@@ -1,0 +1,21 @@
+{{#if session.isAuthenticated}}
+  <h1 class="center-text">play</h1>
+  <div class="header-logo">
+    <img src="/assets/images/mustachetrivia.png">
+  </div>
+  <h3 class="center-text">i mustache you a question...</h3>
+{{else}}
+  <div class="row center-text">
+    <div class="col-md-4 col-md-offset-2">
+      {{signin-form signInPassword="signInPassword"}}
+    </div>
+    <div class="col-md-4">
+      {{password-signup signUp="signUp"}}
+    </div>
+    <button class="btn btn-facebook" {{action "signIn" "facebook"}}>{{fa-icon "facebook" size=1}} Facebook Sign In</button>
+  </div>
+  <div class="header-logo">
+    <img src="/assets/images/mustachetrivia.png">
+  </div>
+  <h3 class="center-text">i mustache you a question...</h3>
+{{/if}}

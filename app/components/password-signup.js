@@ -1,6 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+  signupShowing: false,
+
   actions: {
     signUp() {
       var params = {
@@ -14,7 +16,16 @@ export default Ember.Component.extend({
         console.log("Password does not match password confirmation");
       } else {
         this.sendAction("signUp", params);
+        this.set('signupShowing', false);
       }
+    },
+
+    showSignup() {
+      this.set("signupShowing", true);
+    },
+
+    close() {
+      this.set("signupShowing", false);
     }
   }
 });

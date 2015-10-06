@@ -27,14 +27,6 @@ export default Ember.Route.extend({
     return this.get("session").fetch().catch(function() {});
   },
 
-// this could be whats breaking
-  model() {
-    var currentUser = this.get("session.uid")
-    return this.store.findAll('user').then(function(users) {
-      return users.filterBy('user', currentUser)
-    })
-  },
-
   actions: {
     signUp: function(params) {
       ref.createUser({

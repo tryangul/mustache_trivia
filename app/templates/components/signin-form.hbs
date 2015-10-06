@@ -1,13 +1,23 @@
-<form class="form-wrapper">
-  <div class="form-group">
-    <label for="email">Email</label>
-    {{input value=email id="email" class="form-control" type="email"}}
-  </div>
+<div class="login">
+  {{#if loginShowing}}
+    <form class="form-wrapper">
+      <div class="form-group">
+        <label for="email">Email</label>
+        {{input value=email id="email" class="form-control" type="email"}}
+      </div>
 
-  <div class="form-group">
-    <label for="password">Password</label>
-    {{input value=password id="password" class="form-control" type="password"}}
-  </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        {{input value=password id="password" class="form-control" type="password"}}
+      </div>
 
-  <button class="btn btn-primary" {{action 'signInPassword'}}>Save</button>
-</form>
+      <button class="btn btn-primary" {{action 'close'}}>Close</button>
+
+      <button class="btn btn-default" {{action 'signInPassword'}}>Save</button>
+    </form>
+  {{else}}
+
+    <button class="btn btn-default btn-login" {{action 'showLogin'}}>Log In</button>
+
+  {{/if}}
+</div>
