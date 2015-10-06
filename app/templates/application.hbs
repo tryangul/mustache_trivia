@@ -29,8 +29,7 @@
     <img src="/assets/images/mustachetrivia.png">
   </div>
   {{#if session.isAuthenticated}}
-    Logged in as {{model.name}}
-    <button {{action "signOut"}}>Sign out</button>
+    <h1 class="center-text">play</h1>
     {{outlet}}
   {{else}}
     <button {{action "signIn" "facebook"}}>Sign in with Facebook</button>
