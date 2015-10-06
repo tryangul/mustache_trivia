@@ -13,7 +13,7 @@ export default Ember.Component.extend({
         password_confirmation: this.get("password_confirmation")
       };
       if (params.password !== params.password_confirmation) {
-        console.log("Password does not match password confirmation");
+        Ember.get(this, 'flashMessages').danger("Password does not match password confirmation");
       } else {
         this.sendAction("signUp", params);
         this.set('signupShowing', false);

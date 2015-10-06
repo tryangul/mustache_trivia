@@ -1,13 +1,15 @@
 import Ember from 'ember';
   var ref = new Firebase("https://mustachetriviaapp.firebaseio.com/");
 
-  var signInPassword = function(params) {
+  var error_message = ""
+
+  var signInPassword = function(params, route) {
     ref.authWithPassword({
       email    : params.email,
       password : params.password
     }, function(error, authData) {
       if (error) {
-        console.log("Login Failed!", error);
+        Ember.get(route, 'flashMessages').danger(error);
       } else {
         console.log("Authenticated successfully with payload:", authData);
         ref.child("users").child(authData.uid).update({
@@ -20,17 +22,19 @@ import Ember from 'ember';
     });
   };
 
+
 export default Ember.Route.extend({
 
   actions: {
 
     signUp: function(params) {
+      var _this = this
       ref.createUser({
         email    : params.email,
         password : params.password
       }, function(error, userData) {
         if (error) {
-          console.log("Error creating user:", error);
+          Ember.get(_this, 'flashMessages').danger(error);
         } else {
           console.log("Successfully created user account with uid:", userData.uid);
           ref.child("users").child(userData.uid).set({
@@ -49,19 +53,15 @@ export default Ember.Route.extend({
     },
     //Sign in with Facebook
     signIn: function(provider) {
+      var _this = this;
       ref.onAuth(authDataCallback);
       function authDataCallback(authData) {
-        if (authData) {
-          console.log("User " + authData.uid + " is logged in with " + authData.provider);
-          location.reload();
-        } else {
-          console.log("User is logged out");
-        }
+        if (authData) location.reload();
       }
       ref.authWithOAuthPopup("facebook", function(error, authData) {
         if (error) {
-          console.log("Login Failed!", error);
           this.set(errors, error);
+          Ember.get(_this, 'flashMessages').danger(errors);
         } else {
           console.log("Authenticated successfully with payload:", authData);
           var currentUser = authData.facebook;
@@ -80,9 +80,9 @@ export default Ember.Route.extend({
     this.transitionTo('index');
   },
   //Sign in with Email and Password
-  signInPassword: function(params) {
-    signInPassword(params);
-    this.transitionTo('index');
-  },
+    signInPassword: function(params) {
+      signInPassword(params, this);
+      this.transitionTo('index');
+    },
   }
 });
