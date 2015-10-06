@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-  var ref = new Firebase("https://mustachetrivia.firebaseio.com/");
+  var ref = new Firebase("https://mustachetriviaapp.firebaseio.com/");
 
   var signInPassword = function(params) {
     ref.authWithPassword({
@@ -22,6 +22,7 @@ import Ember from 'ember';
   };
 
 export default Ember.Route.extend({
+
   beforeModel: function() {
     return this.get("session").fetch().catch(function() {});
   },
