@@ -26,10 +26,6 @@ export default Ember.Route.extend({
     return this.get("session").fetch().catch(function() {});
   },
 
-  model() {
-    var currentUser = this.get("session.uid")
-    return this.store.findRecord('user', currentUser)
-  },
 
   actions: {
     signUp: function(params) {
