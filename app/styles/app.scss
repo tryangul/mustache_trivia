@@ -240,7 +240,9 @@ body {
 		}
 	}
 
-
+.glyphicon {
+  color: #fff;
+}
 //Index
 .header-logo {
   img {
@@ -260,4 +262,15 @@ body {
 //Login and Signup Forms
 .btn-login {
   width: 20rem;
+}
+
+//Profile Page
+.profile-image {
+  img {
+    width: 9rem;
+    border-radius: 50%;
+  }
+}
+.profile-name {
+  margin-left: -5%;
 }
