@@ -5,7 +5,7 @@ module.exports = function(environment) {
     modulePrefix: 'mustache-trivia',
     environment: environment,
     contentSecurityPolicy: { 'connect-src': "'self' https://auth.firebase.com wss://*.firebaseio.com" },
-    firebase: 'https://mustachetrivia.firebaseio.com/',
+    firebase: 'https://mustachetriviaapp.firebaseio.com/',
     baseURL: '/',
     locationType: 'auto',
     EmberENV: {

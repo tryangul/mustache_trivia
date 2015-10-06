@@ -1,4 +1,24 @@
 import Ember from 'ember';
+  var ref = new Firebase("https://mustachetriviaapp.firebaseio.com/");
+
+  var signInPassword = function(params) {
+    ref.authWithPassword({
+      email    : params.email,
+      password : params.password
+    }, function(error, authData) {
+      if (error) {
+        console.log("Login Failed!", error);
+      } else {
+        console.log("Authenticated successfully with payload:", authData);
+        ref.child("users").child(authData.uid).update({
+          profileImageURL: authData.password.profileImageURL,
+          admin: false,
+          provider: authData.provider
+        });
+        window.location.reload();
+      }
+    });
+  };
 
 export default Ember.Route.extend({
 
