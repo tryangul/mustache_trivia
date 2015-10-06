@@ -26,7 +26,6 @@ export default Ember.Route.extend({
     return this.get("session").fetch().catch(function() {});
   },
 
-
   actions: {
     signUp: function(params) {
       ref.createUser({

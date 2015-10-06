@@ -3,27 +3,34 @@
     <span class="menu-icon"></span>
   </div>
   <ul class="navbar-menu animate">
-    <li>
-      <a href="#about-us" class="animate">
-        <span class="desc animate"> Profile </span>
-        <span class="glyphicon glyphicon-user"></span>
-      </a>
-    </li>
-    <li>
-      <a href="#blog" class="animate">
-        <span class="desc animate"> Play a Game </span>
-        <span class="glyphicon glyphicon-play"></span>
-      </a>
-    </li>
-    <li>
-      <a href="#contact-us" class="animate">
-        <span class="desc animate"> About </span>
-        <span class="glyphicon glyphicon-comment"></span>
-      </a>
-    </li>
+    {{#if session.isAuthenticated}}
+      <li>
+        <a href="#" class="animate">
+          <span class="desc animate"> Profile </span>
+          <span class="glyphicon glyphicon-user"></span>
+        </a>
+      </li>
+      <li>
+        <a href="#" class="animate">
+          <span class="desc animate"> Play a Game </span>
+          <span class="glyphicon glyphicon-play"></span>
+        </a>
+      </li>
+      <li>
+        <a href="#" class="animate" {{action "signOut"}}>
+          <span class="desc animate"> Sign Out </span>
+          <span class="glyphicon glyphicon-minus"></span>
+        </a>
+      </li>
+   {{/if}}
+      <li>
+        <a href="#" class="animate">
+          <span class="desc animate"> About </span>
+          <span class="glyphicon glyphicon-comment"></span>
+        </a>
+      </li>
   </ul>
 </nav>
-
 <div class="container main-container">
   {{outlet}}
 </div>

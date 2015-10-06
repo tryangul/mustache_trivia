@@ -1,6 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+  loginShowing: false,
+  
   actions: {
     signInPassword() {
       var params = {
@@ -8,6 +10,14 @@ export default Ember.Component.extend({
         password: this.get("password"),
       };
       this.sendAction("signInPassword", params);
+    },
+
+    showLogin() {
+      this.set("loginShowing", true);
+    },
+
+    close() {
+      this.set("loginShowing", false);
     }
   }
 });
