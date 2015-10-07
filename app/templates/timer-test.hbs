@@ -1,4 +1,14 @@
-<!-- Time Diff {{time-diff controllers.application.currentTime anotherTime 'seconds'}}<br><br>
-Current Time: {{controllers.application.currentTime}}<br>
-Startup Time: {{anotherTime}} -->
-{{timer-testing}}
+<!-- {{timer-testing model=model}} -->
+<div>
+  {{currentTime}}
+</div>
+<div>
+  {{startTime}}
+</div>
+<div>
+  {{roundTime}}
+</div>
+<div>
+  {{time-diff currentTime startTime roundTime}}
+</div>
+{{testing}}
