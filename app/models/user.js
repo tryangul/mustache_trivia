@@ -6,6 +6,7 @@ export default DS.Model.extend({
   name: DS.attr(),
   username: DS.attr(),
   provider: DS.attr(),
+  answers: DS.hasMany('answer', {async:true}),
   // correctAnswers: DS.attr(),
   // wrongAnswers: DS.attr(),
   // gameScore: null,
