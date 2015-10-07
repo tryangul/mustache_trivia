@@ -21,11 +21,11 @@
   <label for="challenge-user">Choose a User to challenge:</label>
     {{#x-select value=user id="select-user"}}
       <option disabled="disabled" selected="selected">Choose User</option>
-      {{#each model as |user|}}
+      {{#each model.users as |user|}}
       {{#x-option value=user}}
       {{user.name}}
       {{/x-option}}
       {{/each}}
     {{/x-select}}
-<button name="create-game-button" {{action 'createGame'}}>Create Game</button>
+<button name="create-game-button" {{action 'createGame' model}}>Create Game</button>
 </form>

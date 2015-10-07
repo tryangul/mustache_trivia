@@ -24,15 +24,15 @@ export default Ember.Controller.extend({
   roundTime: function(interval) {
     // set roundTime to number specified by round time
     // divide interval by 1000 to get seconds
-    var roundTime = 60;
+    var roundTime = 30;
     return roundTime.toString();
   }.property('roundTimer'),
 
   init: function() {
-    this.updateTime();
+    this.runAction();
   },
 
-  updateTime: function(interval) {
+  runAction: function(interval) {
     var _this = this;
     Ember.run.later(function() {
       _this.set('testing', 'bunker');
