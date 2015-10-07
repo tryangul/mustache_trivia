@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-
+var game=this.get('model.game')
 export default Ember.Component.extend({
 
   currentTime: function() {
