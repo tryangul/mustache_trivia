@@ -1,6 +1,8 @@
 import Ember from 'ember';
 
+
 export default Ember.Component.extend({
+
   currentTime: function() {
     var date = new Date();
     return date.toString();
@@ -25,4 +27,11 @@ export default Ember.Component.extend({
     var roundTime = 30;
     return roundTime.toString();
   }.property('roundTimer'),
+
+  runAction: function(interval) {
+    var _this = this;
+    Ember.run.later(function() {
+      _this.set(game, 'bunker');
+    }, 15000);
+  }.on('didInsertElement'),
 });
