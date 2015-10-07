@@ -1,5 +1,5 @@
 <div class="login">
-  {{#if loginShowing}}
+  {{#liquid-if loginShowing class="formShowing"}}
     <form class="form-wrapper">
       <div class="form-group">
         <label for="email">Email</label>
@@ -20,5 +20,5 @@
 
     <button class="btn btn-default btn-login" {{action 'showLogin'}}>Log In</button>
 
-  {{/if}}
+  {{/liquid-if}}
 </div>
