@@ -17,5 +17,11 @@ export default Ember.Component.extend({
     startTime: function() {
       var start = new Date();
       return start.toString();
-    }.property('startTimer')
+    }.property('startTimer'),
+
+    roundTime: function() {
+      // set roundTime to number specified by round time
+      var roundTime = 60;
+      return roundTime.toString();
+    }.property('roundTimer'),
 });
