@@ -6,7 +6,7 @@
     <li>
       <a class="animate">
         <span class="desc animate"> Home </span>
-        <span class="glyphicon glyphicon-home"></span>
+        {{#link-to 'landing-page'}}<span class="glyphicon glyphicon-home"></span>{{/link-to}}
       </a>
     </li>
     {{#if session.isAuthenticated}}

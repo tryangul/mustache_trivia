@@ -8,3 +8,7 @@
 {{else}}
   <button {{action 'startRound' gameID}}>Start</button>
 {{/if}}
+
+{{#if counterInitialized}}
+  {{round-init model=model}}
+{{/if}}
