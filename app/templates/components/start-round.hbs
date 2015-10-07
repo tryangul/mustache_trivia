@@ -1,1 +1,10 @@
-{{yield}}
+<h5><span class="questionCategory"></span></h5>
+<h3><span class="questionBody"></span></h3>
+
+{{#if showGameForm}}
+<label for="answer">Answer:</label>
+{{input name="answer" type=text}}
+<button>Submit Answer</button>
+{{else}}
+  <button {{action 'startRound' gameID}}>Start</button>
+{{/if}}

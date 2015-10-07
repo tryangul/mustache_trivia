@@ -16,7 +16,7 @@ export default Ember.Route.extend({
       params.users.push(params.player1);
       params.users.push(params.player2);
       var newGame = this.store.createRecord('game', params);
-      debugger;
+
       newGame.save().then(
         function() {
           params.player1.save();
