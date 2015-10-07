@@ -1,8 +1,16 @@
 import Ember from 'ember';
 
+var randID = Math.floor(Math.random() * 1100);
+
 export default Ember.Route.extend({
   model() {
-    return this.store.findAll('user');
+    return Ember.RSVP.hash({
+      users: this.store.findAll('user'),
+      questions: this.store.find('question', { orderBy: '_key',
+                                               limitToFirst: 100,
+                                               startAt: randID.toString()})
+  });
+
   },
 
   actions: {
