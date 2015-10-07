@@ -18,7 +18,7 @@ import Ember from 'ember';
           admin: false,
           provider: authData.provider
         });
-        _this.transitionTo('profile', authData.uid).then(function(){
+        _this.transitionTo('landing-page').then(function(){
           window.location.reload();
         });
       }
@@ -64,7 +64,7 @@ export default Ember.Route.extend({
       ref.onAuth(authDataCallback);
       function authDataCallback(authData) {
         if (authData) {
-          _this.transitionTo('profile', authData.uid).then(function(){
+          _this.transitionTo('landing-page').then(function(){
             window.location.reload();
           });
         }
