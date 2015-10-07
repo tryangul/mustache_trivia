@@ -253,6 +253,17 @@ body {
   }
 }
 
+@media (max-width: 760px) {
+  .header-logo {
+    img {
+      width: 15rem;
+      margin-left:38%;
+      margin-top: 6%;;
+      opacity: 0.9;
+    }
+  }
+}
+
 //FB Button
 .btn-facebook{transition: border 0.4s linear;margin-top:2%;color:#333;background-color:transparent;border-color:#00246B}.btn-facebook:hover,.btn-facebook:focus,.btn-facebook:active,.btn-facebook.active,.open>.dropdown-toggle.btn-facebook{color:#333;background-color:transparent;border-color:#335CAD}
 .btn-facebook:active,.btn-facebook.active,.open>.dropdown-toggle.btn-facebook{background-image:none}
