@@ -9,6 +9,7 @@ Router.map(function() {
   this.route('new-game', { path: '/games/new'});
   this.route('landing-page', { path: '/welcome'});
   this.route('profile', {path: '/users/:user_id'});
+  this.route('timer_test', {});
   this.route('game', {path: '/games/:game_id'});
 });
 
