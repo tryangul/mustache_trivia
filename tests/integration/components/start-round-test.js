@@ -1,7 +1,7 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('game-space', 'Integration | Component | game space', {
+moduleForComponent('start-round', 'Integration | Component | start round', {
   integration: true
 });
 
@@ -11,15 +11,15 @@ test('it renders', function(assert) {
   // Set any properties with this.set('myProperty', 'value');
   // Handle any actions with this.on('myAction', function(val) { ... });
 
-  this.render(hbs`{{game-space}}`);
+  this.render(hbs`{{start-round}}`);
 
   assert.equal(this.$().text().trim(), '');
 
   // Template block usage:
   this.render(hbs`
-    {{#game-space}}
+    {{#start-round}}
       template block text
-    {{/game-space}}
+    {{/start-round}}
   `);
 
   assert.equal(this.$().text().trim(), 'template block text');

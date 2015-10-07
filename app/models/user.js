@@ -6,10 +6,10 @@ export default DS.Model.extend({
   name: DS.attr(),
   username: DS.attr(),
   provider: DS.attr(),
-  correctAnswers: DS.attr(),
-  wrongAnswers: DS.attr(),
-  gameScore: null,
-  wins: DS.attr(),
-  losses: DS.attr(),
+  // correctAnswers: DS.attr(),
+  // wrongAnswers: DS.attr(),
+  // gameScore: null,
+  // wins: DS.attr(),
+  // losses: DS.attr(),
   games: DS.hasMany('game', {aysnc: true})
 });
