@@ -4,26 +4,26 @@
   </div>
   <ul class="navbar-menu animate">
     <li>
-      <a href="#" class="animate">
+      <a class="animate">
         <span class="desc animate"> Home </span>
         <span class="glyphicon glyphicon-home"></span>
       </a>
     </li>
     {{#if session.isAuthenticated}}
       <li>
-        <a href="#" class="animate">
+        <a class="animate">
           <span class="desc animate"> Profile </span>
           {{#link-to 'profile' session.uid}}<span class="glyphicon glyphicon-user"></span>{{/link-to}}
         </a>
       </li>
       <li>
-        <a href="#" class="animate">
+        <a class="animate">
           <span class="desc animate"> Play a Game </span>
           {{#link-to 'new-game'}}<span class="glyphicon glyphicon-play"></span>{{/link-to}}
         </a>
       </li>
       <li>
-        <a href="#" class="animate" {{action "signOut"}}>
+        <a class="animate" {{action "signOut"}}>
           <span class="desc animate"> Sign Out </span>
           <span class="glyphicon glyphicon-minus"></span>
         </a>
