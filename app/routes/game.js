@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-var randID = Math.floor(Math.random() * 1100);
+var randID = Math.floor(Math.random() * 1901);
 
 export default Ember.Route.extend({
   model(params) {
@@ -13,7 +13,7 @@ export default Ember.Route.extend({
       user: this.store.find('user', userId)
     });
   },
-  
+
   actions: {
     startRound: function(params) {
       var newRound = this.store.createRecord('round', params);
@@ -21,15 +21,22 @@ export default Ember.Route.extend({
       params.game.save();
     },
 
-    newAnswer: function(params) {
-      var newAnswer = this.store.createRecord('answer', params);
-        newAnswer.save();
-        params.user.save();
-        params.round.save();
-        params.question.save()
-        .catch(e => {
-          console.log(e.errors);
-        });
+    newAnswer: function(params, game) {
+      var newAnswer = this.store.createRecord('answer', params, game);
+      newAnswer.save();
+      params.user.save();
+      params.round.save();
+      params.question.save();
+
+      // debugger;
+      if (newAnswer.get('option') === newAnswer.get('question.q_correct_option')) {
+        game.incrementProperty('correctAnswers');
+        game.save();
+      } else {
+        game.incrementProperty('incorrectAnswers');
+        game.save();
+      }
     }
+
   }
 });
