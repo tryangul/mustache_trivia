@@ -17,10 +17,9 @@
   {{#if roundBeginning}}
     <button class="btn btn-default start-round-button" {{action 'startRound'}}>Start</button>
   {{/if}}
-  <h3 class="game-message">{{gameMessage}}</h3>
 {{/if}}
-
 <br>
+<h3 class="game-message">{{gameMessage}}</h3>
 
 {{#if counterInitialized}}
     {{round-timer model=model roundOver='roundOver'}}

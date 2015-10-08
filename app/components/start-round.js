@@ -24,6 +24,7 @@ export default Ember.Component.extend({
       var questionCategory = this.get('model.questions').get('firstObject.q_category_id');
 
       $('.questionBody').text(questionBody);
+      this.set('roundBeginning', false);
       // $('.option1').text(firstQuestion.get('q_options_1'));
       // $('.option2').text(firstQuestion.get('q_options_2'));
       // $('.option3').text(firstQuestion.get('q_options_3'));
@@ -61,7 +62,7 @@ export default Ember.Component.extend({
     roundOver: function() {
       this.set('showGameForm', false);
       this.set('gameMessage', "Your turn is over!");
-      this.set('roundBeginning', false);
+      this.sendAction('roundEnded')
     }
   }
 });
