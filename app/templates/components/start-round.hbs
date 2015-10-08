@@ -15,7 +15,7 @@
 {{#if showGameForm}}
 {{else}}
   {{#if roundBeginning}}
-    <button class="btn btn-default start-round-button" {{action 'startRound'}}>Start</button>
+    <button class="btn btn-default start-round-button" {{action 'startRound' model.questions}}>Start</button>
   {{/if}}
 {{/if}}
 <br>

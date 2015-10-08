@@ -19,21 +19,27 @@ export default Ember.Route.extend({
       var newRound = this.store.createRecord('round', params);
       newRound.save();
       params.game.save();
+      params.user.save();
     },
 
     newAnswer: function(params, game) {
       var newAnswer = this.store.createRecord('answer', params, game);
       newAnswer.save();
-      params.user.save();
+      params.user.save().catch(e => {
+        console.log(e.errors);
+      });
       params.round.save();
-      params.question.save();
 
       // debugger;
       if (newAnswer.get('option') === newAnswer.get('question.q_correct_option')) {
         game.incrementProperty('correctAnswers');
+        params.user.incrementProperty('correctAnswers');
+        params.user.save();
         game.save();
       } else {
         game.incrementProperty('incorrectAnswers');
+        params.user.incrementProperty('incorrectAnswers');
+        params.user.save();
         game.save();
       }
     },

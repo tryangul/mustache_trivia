@@ -12,7 +12,6 @@ export default Ember.Component.extend({
         correctAnswers: 0,
         incorrectAnswers: 0
       };
-      debugger;
       this.sendAction('createGame', params);
     }
   }

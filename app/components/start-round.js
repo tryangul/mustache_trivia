@@ -10,25 +10,32 @@ export default Ember.Component.extend({
   roundBeginning: true,
 
   actions: {
-    startRound: function() {
+    startRound: function(questions) {
       var params = {
-              questions: this.get('model.questions'),
+              user: this.get('model.user'),
+              questions: questions,
               game: this.get('model.game'),
               is_over: false
-      }
+      };
       this.sendAction('startRound', params);
       this.set('showGameForm', true);
       this.set('counterInitialized', true);
-      var firstQuestion = this.get('model.questions').get('firstObject');
-      var questionBody = this.get('model.questions').get('firstObject.q_text');
-      var questionCategory = this.get('model.questions').get('firstObject.q_category_id');
-
+      debugger;
+      var firstQuestion = questions.get('firstObject');
+      var questionBody = questions.get('firstObject.q_text');
+      $('.option1').text(questions.get('firstObject.q_options_1'));
+      $('.option2').text(questions.get('firstObject.q_options_2'));
+      $('.option3').text(questions.get('firstObject.q_options_3'));
+      $('.option4').text(questions.get('firstObject.q_options_4'));
+      // debugger;
       $('.questionBody').text(questionBody);
-      this.set('roundBeginning', false);
+
       // $('.option1').text(firstQuestion.get('q_options_1'));
       // $('.option2').text(firstQuestion.get('q_options_2'));
       // $('.option3').text(firstQuestion.get('q_options_3'));
       // $('.option4').text(firstQuestion.get('q_options_4'));
+      this.set('roundBeginning', false);
+
       $('.submit-answer-button').show();
     },
     nextQuestion: function(value) {
