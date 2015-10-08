@@ -1,8 +1,10 @@
-{{#link-to 'new-game'}}
-  <button name="game">Play a Game!</button>
-{{/link-to}}
+<div class="landing-page-buttons">
+  {{#link-to 'new-game'}}
+    <button class="btn btn-primary btn-login btn-landing-page" name="game">Play a Game!</button>
+  {{/link-to}}
 
-{{#link-to 'profile' session.uid}} <!-- will need to pass in active user session id. -->
-  <button name="profile">View your Profile</button>
-{{/link-to}}
+  {{#link-to 'profile' session.uid}}
+    <button class="btn btn-primary btn-default btn-landing-page" name="profile">View your Profile</button>
+  {{/link-to}}
+</div>
 <!-- button to display all users in database? -->
