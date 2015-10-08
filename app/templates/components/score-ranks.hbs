@@ -1,0 +1,34 @@
+<div class="container">
+  <h2>Score Board</h2>
+  <table class="table table-hover">
+    <thead>
+      <th>
+        User
+      </th>
+      <th>
+        Accuracy
+      </th>
+      <th>
+        # Questions Answered
+      </th>
+    </thead>
+    <tbody>
+    {{#each UsersByRank as |user|}}
+      <tr>
+        <td>
+      {{#link-to 'profile' user.id}}
+          {{user.username}}
+      {{/link-to}}
+        </td>
+        <td>
+          {{user.answerRatio}} %
+        </td>
+        <td>
+          {{user.totalAnswers}}
+        </td>
+      </tr>
+    {{/each}}
+
+    </tbody>
+  </table>
+</div>

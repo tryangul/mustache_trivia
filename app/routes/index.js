@@ -50,8 +50,8 @@ export default Ember.Route.extend({
             admin: false,
             createdAt: new Date(),
             editedAt: null,
-            correctAnswers: null,
-            wrongAnswers: null,
+            correctAnswers: 0,
+            wrongAnswers: 0,
             currentTurnComplete: false
           });
         }
