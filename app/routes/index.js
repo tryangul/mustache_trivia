@@ -18,9 +18,9 @@ import Ember from 'ember';
           admin: false,
           provider: authData.provider,
         });
-        _this.transitionTo('landing-page').then(function(){
+        // _this.transitionTo('landing-page').then(function(){
           window.location.reload();
-        });
+        // });
       }
     });
   };
@@ -45,7 +45,6 @@ export default Ember.Route.extend({
         } else {
           console.log("Successfully created user account with uid:", userData.uid);
           ref.child("users").child(userData.uid).set({
-            name: params.name,
             username: params.username,
             email: params.email,
             admin: false,
