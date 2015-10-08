@@ -2,8 +2,7 @@ import Ember from 'ember';
 
 
 export default Ember.Component.extend({
-  gameMessage: "",
-
+  
   currentTime: function() {
     var date = new Date();
     return date.toString();
@@ -50,7 +49,7 @@ export default Ember.Component.extend({
            is_over: true
          });
        }
-       _this.set('gameMessage', 'Your turn is over!')
+       _this.sendAction('roundOver');
     }, interval);
   }.on('didInsertElement'),
 });

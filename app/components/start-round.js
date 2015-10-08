@@ -6,7 +6,8 @@ export default Ember.Component.extend({
   showGameForm: false,
   counterInitialized: false,
   questionArray: "",
-
+  gameMessage: "",
+  roundBeginning: true,
 
   actions: {
     startRound: function() {
@@ -55,6 +56,12 @@ export default Ember.Component.extend({
         $('.questionCategory').text('What a Beast!!');
         $('.questionBody').text('No More Questions This Round.');
       }
+    },
+
+    roundOver: function() {
+      this.set('showGameForm', false);
+      this.set('gameMessage', "Your turn is over!");
+      this.set('roundBeginning', false);
     }
   }
 });
