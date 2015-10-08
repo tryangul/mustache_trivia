@@ -77,7 +77,7 @@ export default Ember.Route.extend({
           console.log("Authenticated successfully with payload:", authData);
           var currentUser = authData.facebook;
           ref.child("users").child(authData.uid).update({
-            name: currentUser.displayName,
+            username: currentUser.displayName,
             email: currentUser.email,
             profileImageURL: currentUser.profileImageURL,
             admin: false,

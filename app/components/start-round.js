@@ -24,6 +24,7 @@ export default Ember.Component.extend({
 
       $('.questionBody').text(questionBody);
       $('.questionCategory').text(questionCategory);
+      this.set('roundBeginning', false);
     },
     nextQuestion: function() {
       // creates new answer for database
@@ -51,7 +52,6 @@ export default Ember.Component.extend({
     roundOver: function() {
       this.set('showGameForm', false);
       this.set('gameMessage', "Your turn is over!");
-      this.set('roundBeginning', false);
     }
   }
 });
