@@ -12,5 +12,6 @@ export default DS.Model.extend({
   // gameScore: null,
   // wins: DS.attr(),
   // losses: DS.attr(),
-  games: DS.hasMany('game', {aysnc: true})
+  games: DS.hasMany('games', {aysnc: true}),
+  currentTurnComplete: DS.attr()
 });

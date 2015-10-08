@@ -16,7 +16,7 @@ import Ember from 'ember';
         ref.child("users").child(authData.uid).update({
           profileImageURL: authData.password.profileImageURL,
           admin: false,
-          provider: authData.provider
+          provider: authData.provider,
         });
         _this.transitionTo('landing-page').then(function(){
           window.location.reload();
@@ -52,7 +52,8 @@ export default Ember.Route.extend({
             createdAt: new Date(),
             editedAt: null,
             correctAnswers: null,
-            wrongAnswers: null
+            wrongAnswers: null,
+            currentTurnComplete: false
           });
         }
         signInPassword(params);
@@ -81,7 +82,8 @@ export default Ember.Route.extend({
             email: currentUser.email,
             profileImageURL: currentUser.profileImageURL,
             admin: false,
-            provider: authData.provider
+            provider: authData.provider,
+            currentTurnComplete: false
           });
         }
       },
