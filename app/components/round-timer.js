@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
-var game=this.get('model.game')
+var testing = 'andrew'
+
 export default Ember.Component.extend({
 
   currentTime: function() {
@@ -31,7 +32,7 @@ export default Ember.Component.extend({
   runAction: function(interval) {
     var _this = this;
     Ember.run.later(function() {
-      _this.set(game, 'bunker');
+      _this.set(testing, 'bunker');
     }, 15000);
   }.on('didInsertElement'),
 });
