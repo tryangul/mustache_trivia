@@ -13,12 +13,14 @@ export default Ember.Route.extend({
       user: this.store.find('user', userId)
     });
   },
+  
   actions: {
     startRound: function(params) {
       var newRound = this.store.createRecord('round', params);
       newRound.save();
       params.game.save();
     },
+
     newAnswer: function(params) {
       var newAnswer = this.store.createRecord('answer', params);
         newAnswer.save();

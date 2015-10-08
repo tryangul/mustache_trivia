@@ -12,7 +12,8 @@ export default Ember.Component.extend({
     startRound: function() {
       var params = {
               questions: this.get('model.questions'),
-              game: this.get('model.game')
+              game: this.get('model.game'),
+              is_over: false
       }
       this.sendAction('startRound', params);
       this.set('showGameForm', true);
