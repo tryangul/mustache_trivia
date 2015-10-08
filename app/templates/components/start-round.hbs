@@ -12,11 +12,14 @@
     </div>
   </div>
 {{else}}
-  <button class="btn btn-default start-round-button" {{action 'startRound'}}>Start</button>
+  {{#if roundBeginning}}
+    <button class="btn btn-default start-round-button" {{action 'startRound'}}>Start</button>
+  {{/if}}
+  <h3 class="game-message">{{gameMessage}}</h3>
 {{/if}}
 
 <br>
 
 {{#if counterInitialized}}
-    {{round-timer model=model}}
+    {{round-timer model=model roundOver='roundOver'}}
 {{/if}}
