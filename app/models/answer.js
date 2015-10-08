@@ -4,5 +4,5 @@ export default DS.Model.extend({
   user: DS.belongsTo('user', {async: true}),
   round: DS.belongsTo('round', {async: true}),
   question: DS.belongsTo('question', {async: true}),
-  body: DS.attr()
+  option: DS.attr('number')
 });

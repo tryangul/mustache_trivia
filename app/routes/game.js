@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-var randID = Math.floor(Math.random() * 1100);
+var randID = Math.floor(Math.random() * 1901);
 
 export default Ember.Route.extend({
   model(params) {
@@ -13,7 +13,7 @@ export default Ember.Route.extend({
       user: this.store.find('user', userId)
     });
   },
-  
+
   actions: {
     startRound: function(params) {
       var newRound = this.store.createRecord('round', params);
@@ -23,8 +23,12 @@ export default Ember.Route.extend({
 
     newAnswer: function(params) {
       var newAnswer = this.store.createRecord('answer', params);
-        newAnswer.save();
-        params.user.save();
+        newAnswer.save().catch(e => {
+          console.log(e.errors);
+        });;
+        params.user.save().catch(e => {
+          console.log(e.errors);
+        });;
         params.round.save();
         params.question.save()
         .catch(e => {

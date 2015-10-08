@@ -3,14 +3,16 @@
   <h3 class="center-text"><span class="questionBody"></span></h3>
 </div>
 
-{{#if showGameForm}}
   <div class="col-md-8 col-md-offset-2">
     <div class="center-text">
-      {{input name="answer" value=answer id="answer" type=text placeholder="what is ..." class="center-text answer-input"}}
       <br>
-      <button class= "btn btn-default submit-answer-button" {{action 'nextQuestion'}}>Submit Answer</button>
+      <button class="btn btn-default submit-answer-button" {{action 'nextQuestion' 1}}><span class="option1"></span></button>
+      <button class="btn btn-default submit-answer-button" {{action 'nextQuestion' 2}}><span class="option2"></span></button>
+      <button class="btn btn-default submit-answer-button" {{action 'nextQuestion' 3}}><span class="option3"></span></button>
+      <button class="btn btn-default submit-answer-button" {{action 'nextQuestion' 4}}><span class="option4"></span></button>
     </div>
   </div>
+{{#if showGameForm}}
 {{else}}
   {{#if roundBeginning}}
     <button class="btn btn-default start-round-button" {{action 'startRound'}}>Start</button>
