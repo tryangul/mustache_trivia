@@ -36,6 +36,10 @@ export default Ember.Route.extend({
         game.incrementProperty('incorrectAnswers');
         game.save();
       }
+    },
+
+    roundEnded: function(game_id) {
+      this.transitionTo('game-results', game_id);
     }
 
   }

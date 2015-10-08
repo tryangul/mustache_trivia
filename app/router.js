@@ -11,7 +11,7 @@ Router.map(function() {
   this.route('profile', {path: '/users/:user_id'});
   this.route('timer_test', {});
   this.route('game', {path: '/games/:game_id'});
-  this.route('gameResults', {path: '/games/:game_id/results'});
+  this.route('game-results', {path: '/games/:game_id/results'});
 });
 
 export default Router;
