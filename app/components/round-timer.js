@@ -1,8 +1,8 @@
 import Ember from 'ember';
 
-var testing = 'andrew'
 
 export default Ember.Component.extend({
+  testing: 'andrew',
 
   currentTime: function() {
     var date = new Date();
@@ -10,11 +10,10 @@ export default Ember.Component.extend({
   }.property('currentTimePulse'),
 
   currentTimeMetronome: function(interval) {
-    interval = interval || 1000;
     Ember.run.later(this, function() {
       this.notifyPropertyChange('currentTimePulse');
       this.currentTimeMetronome();
-    }, interval);
+    }, 1000);
   }.on('didInsertElement'),
 
   startTime: function() {
@@ -23,16 +22,15 @@ export default Ember.Component.extend({
   }.property('startTimer'),
 
   roundTime: function(interval) {
-    // set roundTime to number specified by round time
-    // divide interval by 1000 to get seconds
     interval = this.get('model.game.time')
     return interval.toString();
   }.property('roundTimer'),
 
   runAction: function(interval) {
+    interval = (parseInt(this.get('model.game.time')))*1000
     var _this = this;
     Ember.run.later(function() {
-      _this.set(testing, 'bunker');
-    }, 15000);
+      _this.set('testing', 'bunker');
+    }, interval);
   }.on('didInsertElement'),
 });
