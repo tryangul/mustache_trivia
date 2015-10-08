@@ -25,8 +25,8 @@ export default Ember.Component.extend({
   roundTime: function(interval) {
     // set roundTime to number specified by round time
     // divide interval by 1000 to get seconds
-    var roundTime = 30;
-    return roundTime.toString();
+    interval = this.get('model.game.time')
+    return interval.toString();
   }.property('roundTimer'),
 
   runAction: function(interval) {
