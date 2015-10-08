@@ -39,8 +39,8 @@ export default Ember.Component.extend({
       if (i < 99) {
       var nextQuestion = this.get('model.questions').objectAt(i);
         ++i;
-        $('.questionBody').text(nextQuestion.get('question'));
-        $('.questionCategory').text(nextQuestion.get('category'));
+        $('.questionBody').text(nextQuestion.get('question')).fadeIn();
+        $('.questionCategory').text(nextQuestion.get('category')).fadeIn();
       } else {
         $('.questionCategory').text('What a Beast!!');
         $('.questionBody').text('No More Questions This Round.');
