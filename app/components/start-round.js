@@ -22,12 +22,12 @@ export default Ember.Component.extend({
       var firstQuestion = this.get('model.questions').get('firstObject');
       var questionBody = this.get('model.questions').get('firstObject.q_text');
       var questionCategory = this.get('model.questions').get('firstObject.q_category_id');
-
       $('.questionBody').text(questionBody);
-      // $('.option1').text(firstQuestion.get('q_options_1'));
-      // $('.option2').text(firstQuestion.get('q_options_2'));
-      // $('.option3').text(firstQuestion.get('q_options_3'));
-      // $('.option4').text(firstQuestion.get('q_options_4'));
+
+      $('.option1').text(firstQuestion.get('q_options_1'));
+      $('.option2').text(firstQuestion.get('q_options_2'));
+      $('.option3').text(firstQuestion.get('q_options_3'));
+      $('.option4').text(firstQuestion.get('q_options_4'));
       $('.submit-answer-button').show();
     },
     nextQuestion: function(value) {

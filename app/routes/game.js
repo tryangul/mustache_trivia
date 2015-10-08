@@ -24,7 +24,9 @@ export default Ember.Route.extend({
     newAnswer: function(params, game) {
       var newAnswer = this.store.createRecord('answer', params, game);
       newAnswer.save();
-      params.user.save();
+      params.user.save().catch(e => {
+        console.log(e.errors);
+      });
       params.round.save();
       params.question.save();
 
