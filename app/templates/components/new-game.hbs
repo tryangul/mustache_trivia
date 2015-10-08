@@ -1,5 +1,6 @@
 <div class="center-text">
   <h1 class="create-game-header">Create a Game</h1>
+  <h2>{{model.username}}</h2>
   <form class="create-game-form">
     <label for="time">select your difficulty</label>
     <br>
@@ -20,16 +21,6 @@
         {{#x-option value=120}}2:00{{/x-option}}
       {{/x-select}}
   <br>
-    <label for="challenge-user">choose a user to challenge</label>
-    <br>
-      {{#x-select value=user id="select-user" class="game-form-input"}}
-        <option disabled="disabled" selected="selected">Choose User</option>
-        {{#each model.users as |user|}}
-        {{#x-option value=user}}
-        {{user.name}}
-        {{/x-option}}
-        {{/each}}
-      {{/x-select}}
       <div>
         <button class="create-game-button btn btn-default" {{action 'createGame' model}}>Create Game</button>
       </div>

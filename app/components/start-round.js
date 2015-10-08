@@ -24,11 +24,10 @@ export default Ember.Component.extend({
       var questionCategory = this.get('model.questions').get('firstObject.q_category_id');
 
       $('.questionBody').text(questionBody);
-      $('.questionCategory').text(questionCategory);
-      $('.option1').text(firstQuestion.get('q_options_1'));
-      $('.option2').text(firstQuestion.get('q_options_2'));
-      $('.option3').text(firstQuestion.get('q_options_3'));
-      $('.option4').text(firstQuestion.get('q_options_4'));
+      // $('.option1').text(firstQuestion.get('q_options_1'));
+      // $('.option2').text(firstQuestion.get('q_options_2'));
+      // $('.option3').text(firstQuestion.get('q_options_3'));
+      // $('.option4').text(firstQuestion.get('q_options_4'));
       $('.submit-answer-button').show();
     },
     nextQuestion: function(value) {
@@ -40,7 +39,8 @@ export default Ember.Component.extend({
         question: prevQuestion,
         round: this.get('model.game.rounds').get('firstObject')
       }
-      this.sendAction('newAnswer', params);
+      var game = this.get('model.game');
+      this.sendAction('newAnswer', params, game);
 
       //increments through questions
       if (i < 99) {
