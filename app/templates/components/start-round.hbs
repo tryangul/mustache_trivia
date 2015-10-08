@@ -1,14 +1,22 @@
-<h5><span class="questionCategory"></span></h5>
-<h3><span class="questionBody"></span></h3>
+<div class="question-card col-md-8 col-md-offset-2">
+  <h5 class="center-text"><span class="questionCategory"></span></h5>
+  <h3 class="center-text"><span class="questionBody"></span></h3>
+</div>
 
 {{#if showGameForm}}
-<label for="answer">Answer:</label>
-{{input name="answer" value=answer id="answer" type=text}}
-<button{{action 'nextQuestion'}}>Submit Answer</button>
+  <div class="col-md-8 col-md-offset-2">
+    <div class="center-text">
+      {{input name="answer" value=answer id="answer" type=text placeholder="what is ..." class="center-text answer-input"}}
+      <br>
+      <button class= "btn btn-default submit-answer-button" {{action 'nextQuestion'}}>Submit Answer</button>
+    </div>
+  </div>
 {{else}}
-  <button {{action 'startRound'}}>Start</button>
+  <button class="btn btn-default start-round-button" {{action 'startRound'}}>Start</button>
 {{/if}}
 
+<br>
+
 {{#if counterInitialized}}
-  {{round-timer model=model}}
+    {{round-timer model=model}}
 {{/if}}
