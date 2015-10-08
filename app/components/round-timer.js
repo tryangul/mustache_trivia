@@ -27,10 +27,14 @@ export default Ember.Component.extend({
   }.property('roundTimer'),
 
   runAction: function(interval) {
+    var ref = new Firebase("https://mustachetriviaapp.firebaseio.com/games");
+    var game_id = this.get('model.game.id')
     interval = (parseInt(this.get('model.game.time')))*1000
     var _this = this;
     Ember.run.later(function() {
-      _this.set('testing', 'bunker');
+       ref.child(game_id).update({
+         difficulty: 'hard'
+       });
     }, interval);
   }.on('didInsertElement'),
 });
