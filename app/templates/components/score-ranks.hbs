@@ -1,0 +1,8 @@
+<div class="container">
+  <h2>Score Board</h2>
+  <ul style="list-style: none">
+    {{#each UsersByRank as |user|}}
+    <li><h4>{{user.username}} --- {{user.answerRatio}}</h4></li>
+    {{/each}}
+  </ul>
+</div>

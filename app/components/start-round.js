@@ -8,26 +8,35 @@ export default Ember.Component.extend({
   questionArray: "",
   gameMessage: "",
   roundBeginning: true,
-
+  option1: "foo",
+  option2: "",
+  option3: "",
+  option4: "",
   actions: {
-    startRound: function() {
+    startRound: function(questions) {
       var params = {
-              questions: this.get('model.questions'),
+              questions: questions,
               game: this.get('model.game'),
               is_over: false
-      }
+      };
       this.sendAction('startRound', params);
       this.set('showGameForm', true);
       this.set('counterInitialized', true);
-      var firstQuestion = this.get('model.questions').get('firstObject');
-      var questionBody = this.get('model.questions').get('firstObject.q_text');
-      var questionCategory = this.get('model.questions').get('firstObject.q_category_id');
+      var firstQuestion = questions.get('firstObject');
+      var questionBody = questions.get('firstObject.q_text');
+      $('.option1').text(questions.get('firstObject.q_options_1'));
+      $('.option2').text(questions.get('firstObject.q_options_2'));
+      $('.option3').text(questions.get('firstObject.q_options_3'));
+      $('.option4').text(questions.get('firstObject.q_options_4'));
+      // debugger;
       $('.questionBody').text(questionBody);
 
-      $('.option1').text(firstQuestion.get('q_options_1'));
-      $('.option2').text(firstQuestion.get('q_options_2'));
-      $('.option3').text(firstQuestion.get('q_options_3'));
-      $('.option4').text(firstQuestion.get('q_options_4'));
+      // $('.option1').text(firstQuestion.get('q_options_1'));
+      // $('.option2').text(firstQuestion.get('q_options_2'));
+      // $('.option3').text(firstQuestion.get('q_options_3'));
+      // $('.option4').text(firstQuestion.get('q_options_4'));
+      this.set('roundBeginning', false);
+
       $('.submit-answer-button').show();
     },
     nextQuestion: function(value) {
@@ -58,10 +67,10 @@ export default Ember.Component.extend({
       }
     },
 
-    roundOver: function() {
+    roundOver: function(game_id) {
       this.set('showGameForm', false);
       this.set('gameMessage', "Your turn is over!");
-      this.set('roundBeginning', false);
+      this.sendAction('roundEnded', game_id)
     }
   }
 });

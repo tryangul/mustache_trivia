@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 
 export default Ember.Component.extend({
-  
+
   currentTime: function() {
     var date = new Date();
     return date.toString();
@@ -29,27 +29,15 @@ export default Ember.Component.extend({
     var gamesRef = new Firebase("https://mustachetriviaapp.firebaseio.com/games");
     var usersRef = new Firebase("https://mustachetriviaapp.firebaseio.com/users");
     var game_id = this.get('model.game.id')
-    var gameUsers = this.get('model.game.users')
     var user = this.get('model.user')
     var user_id = this.get('model.user.id')
-    var finished_users = []
     interval = (parseInt(this.get('model.game.time')))*1000
     var _this = this;
     Ember.run.later(function() {
-       usersRef.child(user_id).update({
-         currentTurnComplete: true
+       gamesRef.child(game_id).update({
+         is_over: true
        });
-       gameUsers.forEach(function(user) {
-         if (user.currentTurnComplete === true) {
-           finished_users.push("user");
-         }
-       })
-       if (finished_users.length > 1) {
-         gamesRef.child(game_id).update({
-           is_over: true
-         });
-       }
-       _this.sendAction('roundOver');
+       _this.sendAction('roundOver', game_id);
     }, interval);
   }.on('didInsertElement'),
 });
