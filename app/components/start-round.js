@@ -18,17 +18,23 @@ export default Ember.Component.extend({
       this.sendAction('startRound', params);
       this.set('showGameForm', true);
       this.set('counterInitialized', true);
-      var questionBody = this.get('model.questions').get('firstObject.question');
-      var questionCategory = this.get('model.questions').get('firstObject.category');
+      var firstQuestion = this.get('model.questions').get('firstObject');
+      var questionBody = this.get('model.questions').get('firstObject.q_text');
+      var questionCategory = this.get('model.questions').get('firstObject.q_category_id');
 
       $('.questionBody').text(questionBody);
       $('.questionCategory').text(questionCategory);
+      $('.option1').text(firstQuestion.get('q_options_1'));
+      $('.option2').text(firstQuestion.get('q_options_2'));
+      $('.option3').text(firstQuestion.get('q_options_3'));
+      $('.option4').text(firstQuestion.get('q_options_4'));
+      $('.submit-answer-button').show();
     },
-    nextQuestion: function() {
+    nextQuestion: function(value) {
       // creates new answer for database
       var prevQuestion = this.get('model.questions').objectAt(i-1);
       var params = {
-        body: this.get('answer'),
+        option: value,
         user: this.get('model.user'),
         question: prevQuestion,
         round: this.get('model.game.rounds').get('firstObject')
@@ -39,8 +45,12 @@ export default Ember.Component.extend({
       if (i < 99) {
       var nextQuestion = this.get('model.questions').objectAt(i);
         ++i;
-        $('.questionBody').text(nextQuestion.get('question')).fadeIn();
-        $('.questionCategory').text(nextQuestion.get('category')).fadeIn();
+        $('.questionBody').text(nextQuestion.get('q_text')).fadeIn();
+        $('.questionCategory').text(nextQuestion.get('q_category_id')).fadeIn();
+        $('.option1').text(nextQuestion.get('q_options_1'));
+        $('.option2').text(nextQuestion.get('q_options_2'));
+        $('.option3').text(nextQuestion.get('q_options_3'));
+        $('.option4').text(nextQuestion.get('q_options_4'));
       } else {
         $('.questionCategory').text('What a Beast!!');
         $('.questionBody').text('No More Questions This Round.');
