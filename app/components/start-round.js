@@ -59,10 +59,10 @@ export default Ember.Component.extend({
       }
     },
 
-    roundOver: function() {
+    roundOver: function(game_id) {
       this.set('showGameForm', false);
       this.set('gameMessage', "Your turn is over!");
-      this.sendAction('roundEnded')
+      this.sendAction('roundEnded', game_id)
     }
   }
 });
