@@ -19,6 +19,7 @@ export default Ember.Route.extend({
       var newRound = this.store.createRecord('round', params);
       newRound.save();
       params.game.save();
+      params.user.save();
     },
 
     newAnswer: function(params, game) {
@@ -28,7 +29,6 @@ export default Ember.Route.extend({
         console.log(e.errors);
       });
       params.round.save();
-      params.question.save();
 
       // debugger;
       if (newAnswer.get('option') === newAnswer.get('question.q_correct_option')) {

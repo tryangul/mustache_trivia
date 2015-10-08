@@ -8,13 +8,11 @@ export default Ember.Component.extend({
   questionArray: "",
   gameMessage: "",
   roundBeginning: true,
-  option1: "foo",
-  option2: "",
-  option3: "",
-  option4: "",
+
   actions: {
     startRound: function(questions) {
       var params = {
+              user: this.get('model.user'),
               questions: questions,
               game: this.get('model.game'),
               is_over: false
@@ -22,6 +20,7 @@ export default Ember.Component.extend({
       this.sendAction('startRound', params);
       this.set('showGameForm', true);
       this.set('counterInitialized', true);
+      debugger;
       var firstQuestion = questions.get('firstObject');
       var questionBody = questions.get('firstObject.q_text');
       $('.option1').text(questions.get('firstObject.q_options_1'));
