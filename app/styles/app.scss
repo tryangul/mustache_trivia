@@ -289,3 +289,63 @@ body {
 .profile-name {
   margin-left: -5%;
 }
+
+// Landing Page
+.btn-landing-page {
+  width: 25rem;
+  height: 5rem;
+  margin-left:3%;
+}
+
+.landing-page-buttons {
+  margin-left: 24%;
+  margin-top: 15%;
+}
+
+// New Game Page
+.create-game-form {
+  // margin-left: 30%;
+  label {
+    margin-top: 3%;
+  }
+  .game-form-input {
+    width: 25rem;
+  }
+}
+
+.create-game-button {
+  margin-top: 4%;
+  width: 20rem;
+}
+
+// Game Page
+.start-round-button {
+  width: 20rem;
+  height: 5rem;
+  margin-left: 40%;
+  margin-top: 15%;
+}
+
+.submit-answer-button {
+  margin-top: 3%;
+  width: 20rem;
+}
+
+.answer-input {
+  width: 25rem;
+  height: 5rem;
+  margin-top: 3%;
+}
+
+.question-card {
+  margin-top: 5%;
+}
+
+.timer {
+  // border: 2px solid $accent-color;
+  // border-radius: 50%;
+  width: 5rem;
+  height: 5rem;
+  margin-top: 25%;
+  margin-left: 49%;
+}

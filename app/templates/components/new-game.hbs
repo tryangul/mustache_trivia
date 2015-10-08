@@ -1,31 +1,37 @@
-<h2>Challenge your Friends to Mustache Trivia!</h2>
-
-<form>
-  <label for="time">Select a DIFFICULTY:</label>
-    {{#x-select value=difficulty id="game-difficulty"}}
-      <option disabled="disabled" selected="selected">Choose Difficulty</option>
-      {{#x-option value="easy"}}Easy{{/x-option}}
-      {{#x-option value="medium"}}Medium{{/x-option}}
-      {{#x-option value="hard"}}Ken Jennings{{/x-option}}
-    {{/x-select}}
-<br>
-  <label for="time">Select a Time Limit:</label>
-    {{#x-select value=time id="game-time"}}
-      <option disabled="disabled" selected="selected">Time Limit</option>
-      {{#x-option value=15}}:15{{/x-option}}
-      {{#x-option value=30}}:30{{/x-option}}
-      {{#x-option value=45}}:45{{/x-option}}
-      {{#x-option value=60}}1 Minute{{/x-option}}
-    {{/x-select}}
-<br>
-  <label for="challenge-user">Choose a User to challenge:</label>
-    {{#x-select value=user id="select-user"}}
-      <option disabled="disabled" selected="selected">Choose User</option>
-      {{#each model.users as |user|}}
-      {{#x-option value=user}}
-      {{user.name}}
-      {{/x-option}}
-      {{/each}}
-    {{/x-select}}
-<button name="create-game-button" {{action 'createGame' model}}>Create Game</button>
-</form>
+<div class="center-text">
+  <h1 class="create-game-header">Create a Game</h1>
+  <form class="create-game-form">
+    <label for="time">select your difficulty</label>
+    <br>
+      {{#x-select value=difficulty id="game-difficulty" class="game-form-input"}}
+        <option disabled="disabled" selected="selected">Choose Difficulty</option>
+        {{#x-option value="easy"}}Easy{{/x-option}}
+        {{#x-option value="medium"}}Medium{{/x-option}}
+        {{#x-option value="hard"}}Ken Jennings{{/x-option}}
+      {{/x-select}}
+  <br>
+    <label for="time">select the round length</label>
+    <br>
+      {{#x-select value=time id="game-time" class="game-form-input"}}
+        <option disabled="disabled" selected="selected">Time Limit</option>
+        {{#x-option value=30}}0:30{{/x-option}}
+        {{#x-option value=60}}1:00{{/x-option}}
+        {{#x-option value=90}}1:30{{/x-option}}
+        {{#x-option value=120}}2:00{{/x-option}}
+      {{/x-select}}
+  <br>
+    <label for="challenge-user">choose a user to challenge</label>
+    <br>
+      {{#x-select value=user id="select-user" class="game-form-input"}}
+        <option disabled="disabled" selected="selected">Choose User</option>
+        {{#each model.users as |user|}}
+        {{#x-option value=user}}
+        {{user.name}}
+        {{/x-option}}
+        {{/each}}
+      {{/x-select}}
+      <div>
+        <button class="create-game-button btn btn-default" {{action 'createGame' model}}>Create Game</button>
+      </div>
+  </form>
+</div>
