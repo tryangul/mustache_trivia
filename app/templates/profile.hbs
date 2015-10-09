@@ -5,23 +5,25 @@
   <div class="profile-name col-md-5">
     <h1>{{model.username}}</h1>
   </div>
-  <div class="col-md-12">
-    <h2>Total Games Played {{model.totalGames}}</h2>
+</div>
+<div class="profile-content">
+  <div class="col-md-7 col-md-offset-3 totalGames">
+    <h3>Total Games Played <span class="accent">{{model.totalGames}}</span></h3>
   </div>
-  <div class="col-md-12">
-    <h2>Total Questions Answered {{model.totalAnswers}}</h2>
+  <div class="col-md-7 col-md-offset-3">
+    <h3>Total Questions Answered <span class="accent">{{model.totalAnswers}}</span></h3>
   </div>
-  <div class="col-md-12">
-    <h2>Correctness Meter {{#link-to 'scoreboard'}}{{model.answerRatio}} %{{/link-to}}</h2>
+  <div class="col-md-7 col-md-offset-3">
+    <h3>Correctness Meter <span class="accent">{{model.answerRatio}} %</span></h3>
   </div>
-  <div class="col-md-12">
-    <h2>Total Correct {{model.correctAnswers}}</h2>
+  <div class="col-md-7 col-md-offset-3">
+    <h3>Total Correct <span class="accent">{{model.correctAnswers}}</span></h3>
   </div>
-  <div class="col-md-12">
-    <h2>Total Incorrect {{model.incorrectAnswers}}</h2>
+  <div class="col-md-7 col-md-offset-3">
+    <h3>Total Incorrect <span class="accent">{{model.incorrectAnswers}}</span></h3>
   </div>
-  <div class="col-md-12">
-    <h2>Answers/Minute {{model.answersPerMinute}}</h2>
+  <div class="col-md-7 col-md-offset-3">
+    <h3>Answers/Minute <span class="accent">{{model.answersPerMinute}}</span></h3>
   </div>
-  <hr>
+
 </div>
