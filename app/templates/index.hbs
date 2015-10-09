@@ -3,11 +3,11 @@
 {{/each}}
 
 {{#if session.isAuthenticated}}
-  <h1 class="center-text">{{#link-to 'landing-page'}}go{{/link-to}}</h1>
-  <div class="header-logo">
-    <img src="/assets/images/mustachetrivia.png">
-  </div>
-  <h3 class="center-text">i mustache you a question...</h3>
+  {{score-ranks model=model}}
+  <br>
+  <br>
+  <br>
+  <h1 class="center-text">{{#link-to 'landing-page'}}play{{/link-to}}</h1>
 {{else}}
   <div class="row center-text">
     <div class="col-md-4 col-md-offset-2">

@@ -1,3 +1,8 @@
-<h1>Correct: {{model.game.correctAnswers}}</h1>
-<h1>Incorrect: {{model.game.incorrectAnswers}}</h1>
-<h2>Answers/Minute: {{model.game.answersPerMinute}}</h2>
+<div class="center-text">
+  <h1>Correct: <span class="accent">{{model.game.correctAnswers}}</span></h1>
+  <h1>Incorrect: <span class="accent">{{model.game.incorrectAnswers}}</span></h1>
+  <h1>Answers/Minute: <span class="accent">{{model.game.answersPerMinute}}</span></h1>
+  <br>
+  <h2>{{#link-to 'landing-page'}}play again{{/link-to}}</h2>
+  <h2>{{#link-to 'scoreboard'}}scoreboard{{/link-to}}</h2>
+</div>
