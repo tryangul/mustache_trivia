@@ -28,6 +28,7 @@ export default Ember.Component.extend({
       $('.option3').text(questions.get('firstObject.q_options_3'));
       $('.option4').text(questions.get('firstObject.q_options_4'));
       $('.questionBody').text(questionBody);
+      $('.questionCategory').text(questions.get('firstObject.category'));
       this.set('roundBeginning', false);
 
       $('.submit-answer-button').show();
@@ -50,7 +51,7 @@ export default Ember.Component.extend({
       var nextQuestion = this.get('model.questions').objectAt(i);
         ++i;
         $('.questionBody').text(nextQuestion.get('q_text')).fadeIn();
-        $('.questionCategory').text(nextQuestion.get('q_category_id')).fadeIn();
+        $('.questionCategory').text(nextQuestion.get('category')).fadeIn();
         $('.option1').text(nextQuestion.get('q_options_1'));
         $('.option2').text(nextQuestion.get('q_options_2'));
         $('.option3').text(nextQuestion.get('q_options_3'));
