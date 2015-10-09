@@ -29,5 +29,17 @@ export default DS.Model.extend({
     } else {
       return answerRatio;
     }
+  }),
+  answersPerMinute: Ember.computed('games.@each.time', function(key, value) {
+    var totalGames = this.get('games.length');
+    var totalAnswers = this.get('totalAnswers');
+    var totalGameTime = 0;
+    this.get('games').forEach(function(game) {
+      if (game.get('incorrectAnswers') != 0 && game.get('correctAnswers') != 0) {
+      totalGameTime += game.get('time');
+    }
+    })
+
+    return (totalAnswers / totalGameTime * 60).toFixed(1);
   })
 });
