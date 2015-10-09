@@ -3,13 +3,13 @@
     <span class="menu-icon"></span>
   </div>
   <ul class="navbar-menu animate">
+    {{#if session.isAuthenticated}}
     <li>
       <a class="animate">
         <span class="desc animate"> Home </span>
         {{#link-to 'landing-page'}}<span class="glyphicon glyphicon-home"></span>{{/link-to}}
       </a>
     </li>
-    {{#if session.isAuthenticated}}
       <li>
         <a class="animate">
           <span class="desc animate"> Profile </span>

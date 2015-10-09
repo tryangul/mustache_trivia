@@ -1,1 +1,5 @@
+{{#if session.isAuthenticated}}
 {{start-round startRound="startRound" newAnswer="newAnswer" model=model roundEnded='roundEnded'}}
+{{else}}
+<h1>YOU CAN'T PLAY UNTIL YOU {{#link-to 'index'}}LOGIN!{{/link-to}}</h1>
+{{/if}}
