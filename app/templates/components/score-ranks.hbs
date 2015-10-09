@@ -11,6 +11,9 @@
       <th>
         # Questions Answered
       </th>
+      <th>
+        Answers/Minute
+      </th>
     </thead>
     <tbody>
     {{#each UsersByRank as |user|}}
@@ -25,6 +28,9 @@
         </td>
         <td>
           {{user.totalAnswers}}
+        </td>
+        <td>
+          {{user.answersPerMinute}}
         </td>
       </tr>
     {{/each}}

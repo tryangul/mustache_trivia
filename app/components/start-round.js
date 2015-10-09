@@ -11,6 +11,7 @@ export default Ember.Component.extend({
 
   actions: {
     startRound: function(questions) {
+      debugger;
       var params = {
               user: this.get('model.user'),
               questions: questions,
@@ -20,20 +21,13 @@ export default Ember.Component.extend({
       this.sendAction('startRound', params);
       this.set('showGameForm', true);
       this.set('counterInitialized', true);
-      debugger;
       var firstQuestion = questions.get('firstObject');
       var questionBody = questions.get('firstObject.q_text');
       $('.option1').text(questions.get('firstObject.q_options_1'));
       $('.option2').text(questions.get('firstObject.q_options_2'));
       $('.option3').text(questions.get('firstObject.q_options_3'));
       $('.option4').text(questions.get('firstObject.q_options_4'));
-      // debugger;
       $('.questionBody').text(questionBody);
-
-      // $('.option1').text(firstQuestion.get('q_options_1'));
-      // $('.option2').text(firstQuestion.get('q_options_2'));
-      // $('.option3').text(firstQuestion.get('q_options_3'));
-      // $('.option4').text(firstQuestion.get('q_options_4'));
       this.set('roundBeginning', false);
 
       $('.submit-answer-button').show();
@@ -52,6 +46,7 @@ export default Ember.Component.extend({
 
       //increments through questions
       if (i < 99) {
+        // debugger;
       var nextQuestion = this.get('model.questions').objectAt(i);
         ++i;
         $('.questionBody').text(nextQuestion.get('q_text')).fadeIn();
