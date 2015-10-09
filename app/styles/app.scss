@@ -290,6 +290,19 @@ body {
   margin-left: -5%;
 }
 
+.profile-content {
+  margin-top: 15rem;
+  border-top: 1px solid $accent-color;
+  margin-left: 5%;
+}
+
+.totalGames {
+  margin-top: 5%;
+}
+
+.accent {
+  color: $accent-color;
+}
 // Landing Page
 .btn-landing-page {
   width: 25rem;
