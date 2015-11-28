@@ -1,7 +1,8 @@
 # Mustache-trivia
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+Answer as many questions as you can before the time runs out. Compete against friends for the high score on the leader board.
+
+Built in Ember using Firebase as a backend.
 
 ## Prerequisites
 
